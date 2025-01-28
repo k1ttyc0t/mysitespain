@@ -1,0 +1,279 @@
+:root {
+    --color-dark-red: #400106;    
+    --color-beige: #D9B991;       /* використана інша колірна палітра :)  */
+    --color-brown: #402814;      
+    --color-dark-green: #0D0C00;  
+    --color-burgundy: #260101;   
+    --color-light-beige: #F5E6D3; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-dark-red);
+    background-color: var(--color-light-beige);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-dark-red);
+}
+
+.header {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: var(--color-beige);
+    border-bottom: 3px solid var(--color-dark-red);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.main-nav {
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-brown);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-list li {
+    position: relative;
+}
+
+/* Псевдоелемент для підкреслення */
+.nav-list li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dark-red);
+    transition: width 0.3s ease;
+}
+
+/* підкреслення при наведенні */
+.nav-list li:hover::after {
+    width: 100%;
+}
+
+/*  декоративні елементи біля посилань */
+.nav-link::before, .nav-link::after {
+    content: '•';
+    color: var(--color-burgundy);
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+}
+
+.nav-link::before {
+    left: -15px;
+}
+
+.nav-link::after {
+    right: -15px;
+}
+
+.nav-link {
+    color: var(--color-dark-red);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Псевдокласи для різних станів посилання */
+.nav-link:hover {
+    color: var(--color-burgundy);
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+/* Псевдоклас для активного посилання */
+.nav-link:active {
+    transform: translateY(1px);
+}
+
+/* Псевдоклас для відвіданого посилання */
+.nav-link:visited {
+    color: var(--color-brown);
+}
+
+/* Псевдоклас для поточної сторінки */
+.nav-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-beige);
+    border-radius: 4px;
+}
+
+
+/* Псевдоелемент для виділення поточного пункту меню */
+.nav-list li:target::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    color: var(--color-burgundy);
+}
+
+.social-links a:hover::before {
+    opacity: 1;
+}
+
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 400px;
+}
+
+.video-container {
+    width: calc(33.333% - 1.33rem); 
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid var(--color-beige);
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 400px; 
+}
+
+.photo-item {
+    width: calc(33.333% - 1.33rem); 
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid var(--color-beige);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+    border-color: var(--color-dark-red);
+}
+
+.photo-details {
+    padding: 3rem;
+    margin: 2rem;
+    background-color: var(--color-beige);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--color-brown);
+}
+
+.photo-details:hover {
+    border-left-color: var(--color-dark-red);
+}
+
+.photo-details h2 {
+    color: var(--color-dark-red);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.photo-details p {
+    color: var(--color-dark-green);
+    line-height: 1.8;
+}
+
+.home-button {
+    display: block;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-dark-red);
+    color: var(--color-light-beige);
+    text-decoration: none;
+    margin: 2rem auto;
+    width: 200px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-dark-red);
+}
+
+.home-button:hover {
+    background-color: var(--color-light-beige);
+    color: var(--color-dark-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(64, 1, 6, 0.3);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: var(--color-dark-red);
+    color: var(--color-light-beige);
+    margin-top: 3rem;
+    border-top: 3px solid var(--color-burgundy);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--color-light-beige);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-beige);
+}
